@@ -3,267 +3,139 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PC Build Guide — Mockup</title>
-  <meta name="description" content="Step-by-step computer building guide, parts checklist, troubleshooting, and printable checklist." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>BuildWise — PC Build Guide</title>
+  <meta name="description" content="Interactive computer build guide and checklist for enthusiasts. Deploy-ready for Netlify." />
+  <link rel="icon" href="/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass:rgba(255,255,255,0.03);
-      --radius:14px; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#071026 0%,var(--bg) 100%);color:#e6eef8;min-height:100vh}
-    .container{max-width:1100px;margin:36px auto;padding:24px}
-    header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
-    .logo{width:62px;height:62px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2dd4bf);display:flex;align-items:center;justify-content:center;font-weight:800;color:#021124}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:4px 0 0;color:var(--muted);font-size:13px}
-
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-
-    /* Main card */
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--card));padding:20px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    .hero{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .hero .intro{max-width:60%}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:#021124;font-weight:700;text-decoration:none}
-
-    /* parts list */
-    .parts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-    .part{padding:12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04)}
-    .part h4{margin:0 0 8px 0;font-size:14px}
-    .small{font-size:12px;color:var(--muted)}
-
-    /* Steps */
-    .steps{margin-top:18px}
-    .step{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.03);margin-bottom:10px}
-    .step .num{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .step.completed{opacity:0.7;text-decoration:line-through}
-
-    /* Sidebar */
-    .sidebar .card{padding:16px}
-    .summary{display:flex;flex-direction:column;gap:8px}
-    .price{font-size:22px;font-weight:800}
-    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
-
-    /* FAQ and footer */
-    .faq{margin-top:12px}
-    details{background:var(--glass);padding:10px;border-radius:8px;margin-bottom:8px}
-
-    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:18px}
-
-    @media (max-width:980px){.grid{grid-template-columns:1fr} .hero .intro{max-width:100%}}
+    body {font-family:'Inter',sans-serif;background:#0f1724;color:#e6eef8;margin:0;padding:0;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    header {width:100%;max-width:1100px;padding:20px;text-align:center}
+    main {flex:1;width:100%;max-width:1100px;padding:20px;box-sizing:border-box}
+    footer {width:100%;padding:12px;text-align:center;font-size:13px;color:#94a3b8;background:#0b1220}
+    .card {background:#111a2e;padding:16px;border-radius:12px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+    .btn {display:inline-block;background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+    select, button {padding:8px 12px;border-radius:8px;border:none;margin-top:6px}
+    button {cursor:pointer;background:linear-gradient(90deg,#7c3aed,#06b6d4);color:white;font-weight:600}
+    .grid {display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .part {padding:12px;border-radius:8px;background:rgba(255,255,255,0.05)}
+    .small {font-size:13px;color:#94a3b8}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">PC</div>
-      <div>
-        <h1>BuildWise — Computer Build Guide (Mockup)</h1>
-        <p class="lead">A friendly, step-by-step guide to assembling a desktop PC. Includes parts checklist, price estimator, and printable build checklist.</p>
-      </div>
-    </header>
+  <header>
+    <h1>💻 BuildWise — PC Build Guide</h1>
+    <p class="small">Interactive computer build guide with parts selection and checklist — deployable on Netlify.</p>
+  </header>
 
-    <div class="grid">
-      <main>
-        <section class="card hero">
-          <div class="intro">
-            <h2>Ready to build your PC?</h2>
-            <p class="small">Follow the guide below. Mark steps complete as you go, choose components from the right, and download a printable checklist.</p>
-            <div style="margin-top:12px">
-              <a class="btn" id="startTour">Start Guide</a>
-            </div>
-          </div>
-          <div style="min-width:200px;text-align:center">
-            <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="6" width="148" height="108" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)"/>
-              <rect x="20" y="28" width="120" height="60" rx="6" fill="rgba(124,58,237,0.12)" />
-              <rect x="34" y="38" width="92" height="8" rx="3" fill="white" opacity="0.08" />
-              <rect x="34" y="60" width="92" height="8" rx="3" fill="white" opacity="0.08" />
-            </svg>
-            <p class="small" style="margin-top:8px">Visual mockup of a PC case — your parts go inside.</p>
-          </div>
-        </section>
+  <main>
+    <section class="card">
+      <h2>Parts Checklist</h2>
+      <label>Filter by category:</label>
+      <select id="filterCat">
+        <option value="all">All</option>
+        <option value="cpu">CPU</option>
+        <option value="gpu">GPU</option>
+        <option value="motherboard">Motherboard</option>
+        <option value="storage">Storage</option>
+        <option value="psu">PSU</option>
+      </select>
+      <div id="partsList" class="grid"></div>
+    </section>
 
-        <section class="card">
-          <h3 style="margin-top:0">Parts Checklist</h3>
-          <div class="parts" id="partsList">
-            <!-- parts populated by JS -->
-          </div>
-          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-            <label class="small">Filter:</label>
-            <select id="filterCat" style="padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
-              <option value="all">All</option>
-              <option value="cpu">CPU</option>
-              <option value="motherboard">Motherboard</option>
-              <option value="gpu">GPU</option>
-              <option value="storage">Storage</option>
-              <option value="psu">PSU</option>
-            </select>
-            <button id="downloadChecklist" class="chip">Download Checklist</button>
-          </div>
-        </section>
+    <section class="card">
+      <h2>Build Steps</h2>
+      <div id="steps"></div>
+    </section>
 
-        <section class="card steps" id="steps">
-          <h3 style="margin-top:0">Step-by-step Build Guide</h3>
-          <!-- Steps populated by JS -->
-        </section>
+    <section class="card">
+      <h2>Build Summary</h2>
+      <div id="selectedList" class="small">— none selected —</div>
+      <p><strong>Total:</strong> <span id="totalPrice">$0</span></p>
+      <button id="downloadChecklist">Download Checklist</button>
+    </section>
+  </main>
 
-        <section class="card faq">
-          <h3 style="margin-top:0">FAQ & Troubleshooting</h3>
-          <details>
-            <summary>PC won't boot — black screen</summary>
-            <p class="small">Check power connections, ensure CPU power and 24-pin motherboard power are connected, reseat RAM, and try the motherboard speaker for beep codes.</p>
-          </details>
-          <details>
-            <summary>System unstable / random reboots</summary>
-            <p class="small">Test with one stick of RAM, check PSU wattage vs GPU requirements, monitor temperatures, and update BIOS if needed.</p>
-          </details>
-        </section>
-
-      </main>
-
-      <aside class="sidebar">
-        <div class="card">
-          <h3 style="margin-top:0">Build Summary</h3>
-          <div class="summary">
-            <div><span class="small">Selected components:</span></div>
-            <div id="selectedList" class="small">— none —</div>
-            <div style="display:flex;justify-content:space-between;align-items:center"><div class="small">Estimated total</div><div class="price" id="totalPrice">$0</div></div>
-            <div class="controls">
-              <div class="chip" id="togglePower">Power checklist</div>
-              <div class="chip" id="clearSelection">Clear</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h4 style="margin-top:0">Quick Links</h4>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <a class="chip" href="#steps">Assembly Steps</a>
-            <a class="chip" href="#partsList">Parts Checklist</a>
-            <a class="chip" id="printBtn">Print Checklist</a>
-          </div>
-        </div>
-
-      </aside>
-    </div>
-
-    <footer>
-      <p>Design mockup — not a real shop. Adapt, edit, and use for teaching or prototyping.</p>
-    </footer>
-  </div>
+  <footer>
+    <p>© 2025 BuildWise. Deploy-ready mockup for Netlify.</p>
+  </footer>
 
   <script>
-    // Mock parts data
     const parts = [
       {id:1,name:'Intel Core i5-13600K',cat:'cpu',price:289},
       {id:2,name:'AMD Ryzen 5 7600X',cat:'cpu',price:229},
       {id:3,name:'ASUS Prime Z790-A',cat:'motherboard',price:229},
-      {id:4,name:'MSI B650 Tomahawk',cat:'motherboard',price:179},
-      {id:5,name:'NVIDIA RTX 4070',cat:'gpu',price:599},
-      {id:6,name:'AMD Radeon RX 7800 XT',cat:'gpu',price:549},
-      {id:7,name:'Corsair Vengeance 32GB (2x16) DDR5',cat:'ram',price:129},
-      {id:8,name:'Samsung 990 EVO 1TB NVMe',cat:'storage',price:119},
-      {id:9,name:'Seagate Barracuda 2TB HDD',cat:'storage',price:54},
-      {id:10,name:'Corsair RM850x 850W',cat:'psu',price:139},
-      {id:11,name:'NZXT H510 Case',cat:'case',price:79}
+      {id:4,name:'NVIDIA RTX 4070',cat:'gpu',price:599},
+      {id:5,name:'Samsung 990 EVO 1TB NVMe',cat:'storage',price:119},
+      {id:6,name:'Corsair RM850x 850W',cat:'psu',price:139}
+    ];
+
+    const steps = [
+      'Prepare workspace',
+      'Install CPU',
+      'Install cooler and RAM',
+      'Mount motherboard',
+      'Install GPU',
+      'Connect storage and PSU',
+      'Boot and install OS'
     ];
 
     const partsList = document.getElementById('partsList');
     const filter = document.getElementById('filterCat');
+    const selectedList = document.getElementById('selectedList');
+    const totalPrice = document.getElementById('totalPrice');
     const selected = new Map();
-    const selectedListEl = document.getElementById('selectedList');
-    const totalPriceEl = document.getElementById('totalPrice');
-    const stepsEl = document.getElementById('steps');
 
     function renderParts(category='all'){
       partsList.innerHTML='';
-      const filtered = category==='all' ? parts : parts.filter(p => p.cat===category);
-      filtered.forEach(p => {
-        const el = document.createElement('div'); el.className='part';
-        el.innerHTML = `<h4>${p.name}</h4><div class="small">Category: ${p.cat.toUpperCase()} — $${p.price}</div><div style="margin-top:8px"><button data-id="${p.id}" class="chip selectBtn">Select</button></div>`;
+      const filtered = category==='all'?parts:parts.filter(p=>p.cat===category);
+      filtered.forEach(p=>{
+        const el=document.createElement('div');
+        el.className='part';
+        el.innerHTML=`<h4>${p.name}</h4><div class='small'>${p.cat.toUpperCase()} — $${p.price}</div><button data-id='${p.id}'>Select</button>`;
         partsList.appendChild(el);
-      })
+      });
     }
 
-    filter.addEventListener('change', e=> renderParts(e.target.value));
-    renderParts();
+    function updateSummary(){
+      if(selected.size===0){selectedList.textContent='— none selected —';totalPrice.textContent='$0';return;}
+      selectedList.innerHTML=Array.from(selected.values()).map(p=>`${p.name} ($${p.price})`).join('<br>');
+      const total=Array.from(selected.values()).reduce((sum,p)=>sum+p.price,0);
+      totalPrice.textContent='$'+total;
+    }
 
-    // selection
-    document.addEventListener('click', e=>{
-      if(e.target.matches('.selectBtn')){
-        const id = Number(e.target.dataset.id);
-        const part = parts.find(p=>p.id===id);
-        if(selected.has(id)) selected.delete(id); else selected.set(id, part);
+    document.addEventListener('click',e=>{
+      if(e.target.tagName==='BUTTON' && e.target.dataset.id){
+        const id=Number(e.target.dataset.id);
+        const part=parts.find(p=>p.id===id);
+        if(selected.has(id)) selected.delete(id); else selected.set(id,part);
         updateSummary();
       }
     });
 
-    function updateSummary(){
-      if(selected.size===0) selectedListEl.textContent='— none —';
-      else selectedListEl.innerHTML = Array.from(selected.values()).map(p=>`${p.name} <span class=\"small\">($${p.price})</span>`).join('<br>');
-      const total = Array.from(selected.values()).reduce((s,p)=>s+p.price,0);
-      totalPriceEl.textContent = `$${total}`;
-    }
+    filter.addEventListener('change',e=>renderParts(e.target.value));
+    renderParts();
 
-    document.getElementById('clearSelection').addEventListener('click', ()=>{selected.clear(); updateSummary();});
-
-    // Steps — interactive checklist
-    const steps = [
-      {id:1,title:'Prepare workspace',desc:'Clear a clean, static-free surface. Gather tools: screwdriver, anti-static wrist strap, thermal paste (if needed).'},
-      {id:2,title:'Install CPU',desc:'Open the CPU socket, align the CPU triangle with the socket marker, lower gently and lock the retention arm.'},
-      {id:3,title:'Install CPU cooler',desc:'If using a stock or aftermarket cooler, apply thermal paste if required, and mount according to manufacturer instructions.'},
-      {id:4,title:'Install RAM',desc:'Insert RAM sticks into the recommended slots (usually A2/B2). Push until the latches click.'},
-      {id:5,title:'Install motherboard into case',desc:'Place I/O shield, align motherboard standoffs, screw the board in place.'},
-      {id:6,title:'Install GPU',desc:'Insert GPU into the top PCIe x16 slot and secure with screws. Connect PCIe power if required.'},
-      {id:7,title:'Connect storage & PSU',desc:'Mount SSD/HDD, connect SATA or NVMe, and attach power connectors from the PSU.'},
-      {id:8,title:'First boot & BIOS',desc:'Power on, enter BIOS (Del/F2), check that CPU, RAM, and storage are detected. Set boot order.'},
-      {id:9,title:'Install OS & drivers',desc:'Install your OS of choice and update GPU and chipset drivers.'}
-    ];
-
-    function renderSteps(){
-      steps.forEach(s=>{
-        const el = document.createElement('div'); el.className='step'; el.dataset.id=s.id;
-        el.innerHTML = `<div class="num">${s.id}</div><div><strong>${s.title}</strong><div class="small">${s.desc}</div></div><div style="margin-left:auto"><input type=checkbox class="stepChk" title="Mark as done"></div>`;
-        stepsEl.appendChild(el);
-      });
-    }
-    renderSteps();
-
-    // Step completion
-    document.addEventListener('change', e=>{
-      if(e.target.classList.contains('stepChk')){
-        const step = e.target.closest('.step');
-        if(e.target.checked) step.classList.add('completed'); else step.classList.remove('completed');
-      }
+    // Steps render
+    const stepsEl=document.getElementById('steps');
+    steps.forEach((s,i)=>{
+      const div=document.createElement('div');
+      div.innerHTML=`<input type='checkbox' id='s${i}'> <label for='s${i}'>${i+1}. ${s}</label>`;
+      stepsEl.appendChild(div);
     });
 
     // Download checklist
-    document.getElementById('downloadChecklist').addEventListener('click', ()=>{
-      const lines = ['Build Checklist', '=================', '', 'Selected Components:'];
-      Array.from(selected.values()).forEach(p=> lines.push(`- ${p.name} — $${p.price}`));
-      lines.push('', 'Steps:', '');
-      steps.forEach(s=> lines.push(`${s.id}. ${s.title} — ${s.desc}`));
-      const blob = new Blob([lines.join('\n')], {type:'text/plain'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'pc-build-checklist.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    document.getElementById('downloadChecklist').addEventListener('click',()=>{
+      const lines=['PC Build Checklist','','Selected parts:'];
+      Array.from(selected.values()).forEach(p=>lines.push(`- ${p.name} — $${p.price}`));
+      lines.push('','Steps:');
+      steps.forEach((s,i)=>lines.push(`${i+1}. ${s}`));
+      const blob=new Blob([lines.join('\n')],{type:'text/plain'});
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);
+      a.download='buildwise-checklist.txt';
+      a.click();
     });
-
-    // Print
-    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
-
-    // Small tour
-    document.getElementById('startTour').addEventListener('click', ()=>{
-      alert('Tip: Select components on the right, then follow the steps and mark each step complete.');
-    });
-
-    // Accessibility: keyboard shortcut to toggle power chip
-    document.addEventListener('keydown', e=>{ if(e.key==='p') alert('Power checklist:\n- PSU connectors\n- 24-pin ATX\n- CPU EPS 8-pin\n- GPU PCIe power');});
-
   </script>
 </body>
 </html>
